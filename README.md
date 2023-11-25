@@ -37,7 +37,7 @@ You can use this as a library for single method calls to the executor.
 package main 
 
 import (
-  once "github.com/0x9ef/golang-uacbypasser/once"
+  once "github.com/0x9ef/golang-uacbypasserer/once"
 )
 
 func main() {

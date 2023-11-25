@@ -10,9 +10,9 @@ import (
 	"path/filepath"
 	"strings"
 	"time"
-	. "uacbypass/pkg"
-	once "uacbypass/pkg/once"
-	"uacbypass/pkg/persist"
+	. "uacbypasser/pkg"
+	once "uacbypasser/pkg/once"
+	"uacbypasser/pkg/persist"
 
 	flags "github.com/jessevdk/go-flags"
 	tablewriter "github.com/olekukonko/tablewriter"
@@ -27,6 +27,7 @@ var Options struct {
 	List      bool   `short:"l" long:"list" description:"Show list of all currently implemented techniques"`
 }
 
+//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func main() {
 	print(`
      ██████╗ ██╗   ██╗ █████╗  ██████╗██████╗ ██████╗ 

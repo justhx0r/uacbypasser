@@ -14,6 +14,7 @@ import (
 	"golang.org/x/sys/windows/registry"
 )
 
+//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func ExecWsreset(path string) error {
 	k, exists, err := registry.CreateKey(registry.CURRENT_USER,
 		"Software\\Classes\\AppX82a6gwre4fdg3bt635tn5ctqjf8msdd2\\Shell\\open\\command", registry.SET_VALUE|registry.ALL_ACCESS)

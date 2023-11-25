@@ -1,7 +1,7 @@
 // Copyright (c) 2019-2022 0x9ef. All rights reserved.
 // Use of this source code is governed by an MIT license
 // that can be found in the LICENSE file.
-package uacbypass
+package uacbypasser
 
 import (
 	"errors"
@@ -21,6 +21,7 @@ var (
 	procShellExecute              = shell32.NewProc("ShellExecuteW")
 )
 
+//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func WithFsr(f func()) error {
 	if f == nil {
 		return errors.New("nullable function provided")
@@ -36,6 +37,7 @@ func WithFsr(f func()) error {
 	return nil
 }
 
+//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func ShellExecute(lpFile, lpOperation, lpParameters string, lpFlags int32) error {
 	var f16 *uint16
 	var o16 *uint16
@@ -53,6 +55,7 @@ func ShellExecute(lpFile, lpOperation, lpParameters string, lpFlags int32) error
 	return err
 }
 
+//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func KeybdEvent(v0, v1, v2, v3 int32) error {
 	ret, _, _ := procKeyBdEvent.Call(uintptr(v0), uintptr(v1), uintptr(v2), uintptr(v3))
 	if ret != 0 {

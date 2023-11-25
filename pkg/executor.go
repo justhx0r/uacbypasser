@@ -1,7 +1,7 @@
 // Copyright (c) 2019-2022 0x9ef. All rights reserved.
 // Use of this source code is governed by an MIT license
 // that can be found in the LICENSE file.
-package uacbypass
+package uacbypasser
 
 // OnceExecutor is suitable for all single-use options that clean up data immediately after their work
 type OnceExecutor func(path string) error
