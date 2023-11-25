@@ -6,7 +6,7 @@ package uacbypasser
 import (
 	"errors"
 	"syscall"
-	"unsafe"
+//	"unsafe"
 
 	"golang.org/x/sys/windows"
 )
