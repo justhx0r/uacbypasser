@@ -27,7 +27,6 @@ var Options struct {
 	List      bool   `short:"l" long:"list" description:"Show list of all currently implemented techniques"`
 }
 
-//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func main() {
 	print(`
      ██████╗ ██╗   ██╗ █████╗  ██████╗██████╗ ██████╗ 

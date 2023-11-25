@@ -1,6 +1,6 @@
 module github.com/justhx0r/uacbypasser
 
-go 1.21
+go 1.18
 
 require (
 	github.com/jessevdk/go-flags v1.5.0

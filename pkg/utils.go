@@ -9,7 +9,6 @@ import (
 	"golang.org/x/sys/windows/registry"
 )
 
-//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func GetBuildNumber() int {
 	k, err := registry.OpenKey(registry.LOCAL_MACHINE,
 		"Software\\Microsoft\\Windows NT\\CurrentVersion", registry.QUERY_VALUE)
@@ -25,7 +24,6 @@ func GetBuildNumber() int {
 	return n
 }
 
-//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func GetUACLevel() int {
 	k, err := registry.OpenKey(registry.LOCAL_MACHINE,
 		"Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System", registry.QUERY_VALUE)

