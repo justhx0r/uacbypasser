@@ -12,7 +12,7 @@ import (
 )
 
 type ExecutorUserinit struct{}
-//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
+
 func (e ExecutorUserinit) findPath() (string, error) {
 	path, exists := syscall.Getenv("SYSTEMROOT")
 	if !exists {
@@ -20,7 +20,7 @@ func (e ExecutorUserinit) findPath() (string, error) {
 	}
 	return path, nil
 }
-//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
+
 func (e ExecutorUserinit) Exec(path string) error {
 	sysdir, err := e.findPath()
 	if err != nil {
@@ -35,7 +35,7 @@ func (e ExecutorUserinit) Exec(path string) error {
 	err = k.SetStringValue("Userinit", kpath)
 	return nil
 }
-//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
+
 func (e ExecutorUserinit) Revert() error {
 	k, err := registry.OpenKey(registry.LOCAL_MACHINE, "Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon", registry.ALL_ACCESS)
 	if err != nil {

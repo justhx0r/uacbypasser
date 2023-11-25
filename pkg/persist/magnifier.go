@@ -11,7 +11,7 @@ import (
 )
 
 type ExecutorMagnifier struct{}
-//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
+
 func (e ExecutorMagnifier) findKey() (string, error) {
 	var key string
 	if strconv.IntSize == 32 {
@@ -23,7 +23,7 @@ func (e ExecutorMagnifier) findKey() (string, error) {
 	}
 	return key, nil
 }
-//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
+
 func (e ExecutorMagnifier) Exec(path string) error {
 	kpath, err := e.findKey()
 	if err != nil {
@@ -47,7 +47,7 @@ func (e ExecutorMagnifier) Exec(path string) error {
 	err = k1.SetStringValue("Configuration", "magnifierpane")
 	return nil
 }
-//garble:controlflow flatten_passes=max junk_jumps=max block_splits=max flatten_hardening=xor,delegate_table
+
 func (e ExecutorMagnifier) Revert() error {
 	kpath, err := e.findKey()
 	if err != nil {
