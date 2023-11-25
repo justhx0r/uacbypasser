@@ -7,7 +7,7 @@ import (
 	"os/exec"
 	"syscall"
 	"time"
-	. "uacbypasser/pkg"
+	. "github.com/justhx0r/uacbypasser/pkg"
 
 	"golang.org/x/sys/windows/registry"
 )

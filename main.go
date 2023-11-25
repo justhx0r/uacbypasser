@@ -10,9 +10,9 @@ import (
 	"path/filepath"
 	"strings"
 	"time"
-	. "uacbypasser/pkg"
-	once "uacbypasser/pkg/once"
-	"uacbypasser/pkg/persist"
+	. "github.com/justhx0r/uacbypasser/pkg"
+	once "github.com/justhx0r/uacbypasser/pkg/once"
+	"github.com/justhx0r/uacbypasser/pkg/persist"
 
 	flags "github.com/jessevdk/go-flags"
 	tablewriter "github.com/olekukonko/tablewriter"
